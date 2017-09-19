@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF8">
+		<title>BoogyWoogy Browser</title>
+		
+<link href="boogy.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="includes/tooltipster-master/css/tooltipster.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="includes/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript" src="js/boogy.js"></script>	
+<script src="includes/simple-slider.js"></script>
+<link href="includes/simple-slider.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="includes/checkStopWords.js"></script>
+
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/ico" href="./favicon.ico">
+
+<script language="javascript" type="text/javascript">
+	$(document).ready(function(){	
+		init();	
+	});
+</script>
+
+
+
+
+<body>
+
+	<!-- title bar -->
+	<div id="pagetitlediv">
+		<span id="pagetitle">BoogyWoogy</span>
+		
+		<!-- search box -->
+			<span id="searchdiv">&nbsp;&nbsp;
+			<textarea id="searchbox" placeholder="Enter search term"></textarea>
+			<input type="button" onclick="startSearch()" value="Search">
+		</span>
+		<span id="instructionsbutton" class="off" onclick="toggleButtons('explanation')">Help</span>
+		
+	
+	<!-- dropdown explanation -->
+	<div id="explanation" style="display:none">
+	
+		<div class="explans">
+			BoogyWoogy &mdash; an homage to <a href="http://www.moma.org/collection/object.php?object_id=78682">Piet Mondrian</a> &mdash;
+			lets you explore Green Common's collection of resources as serendipitiously as you would like.
+		</div>
+		<div class="explans">
+			Begin by entering a term to search for. After that, clicking on a filled-in square will fetch items that are like it. As you mouse over squares, details about the item will be displayed to the right, with a link to the item at Green Commons. (Press the Enter key to freeze the screen if you're having trouble getting info about the square you want.)</div>
+			<div class="explans">
+			The <i> Serendipity Slider</i>  lets you specify how decide what "like it" means. At one end, you get items within the same official subject. At the other, you get items just barely related, or perhaps not related at all. Here are the options:
+			<br /><br />
+				STRICTEST: Items with the same subject<br>
+				STRICT: Keyword search for first subject.<br>
+				SORTOF: keyword search for the last subject<br>
+				WILDCARD: A keyword search on the first real word of the title.
+		</div>
+		<div class="explans">
+			BoogyWoogy is intended just as a demonstration of a little of the power of the Green Commons API, the server technology that's underneath BoogyWoogy's too-bright colors. You can find out more about that API <a href="#">here</a>. (And please note that this app was written by a non-developer. Just a hobbyist. Don't judge me! :) &nbsp;&nbsp;&nbsp;
+			<br><br>
+			<div class="explans">
+			BoogyWoogy is an Open Source project (as is gCommons).  It builds on an idea from Jeff Goldenson. The laughable source code is <a href="https://github.com/dweinberger/boogywoogy/">here</a>, [Need to update ethis.] If you hit bugs (you will) or have suggestions, send an email
+			to me at david@weinberger.org. Thanks! <br>-- David Weinberger, Sept. 2017
+			<span class= "instructionsbtn" onclick="toggleButtons('explanation')" style="text-decoration:underline;color:blue;">Hide</span>
+		</div>
+	</div>
+	</div>
+	<!-- slider -->
+	<span id="sliderbutton" class="off" onclick="toggleButtons('slider')">Relevancy</span>
+	<div id="sliderdiv" style="display:none">
+		<input id="slider" type="text" data-slider="true"><br>
+		<span id="slidertext"><span>STRICTEST</span></span>
+	
+		<div id="sliderinfodiv" style="display:none">
+			<div class="explans">
+				This slider controls how much serendipity you want when GreenCommons finds related items.
+				<br /><br />
+				STRICTEST: Items with the same subject<br>
+				STRICT: Keyword search for first subject.<br>
+				SORTOF: keyword search for titles that contain the first subject<br>
+				NIC CAGE: A keyword search on the first real word of the title.
+			</div>
+		 </div>
+	</div>
+	
+		<span id="pagesubtitle">&nbsp;&nbsp;<a href="http://www.greencommons.net" title="An amateur app built using GreenCommons.net"><img src="./images/gcbadge.png"></a></span>
+	
+</div>
+
+
+		<div class="clear"></div>
+<!-- 
+	
+	<!~~ Search and slider interface ~~>
+	<div id="ui">
+		<!~~ search box ~~>
+		
+		<span id="statusbox"></span>
+		<!~~ slider ~~>
+	
+ -->
+		<div id="waiting" style="display:none"></div>
+<!-- 
+	<img src="images/spinning.webp" style="width:46px;height:46px"></div> 
+-->
+
+	
+	</div>
+	<div id="spacer" class="spacer"></div>
+	
+	
+	
+	
+	<div id="containerdiv" class="containderdiv">
+
+		<!-- Grid goes here -->
+		<div id="outerdiv" class="outerdiv">
+		</div>
+	</div>
+	
+	
+	<!-- side bar -->
+	<div id="sidebar">
+		<!-- catalog card, hidden at first -->
+		<div id="catcarddiv">
+			<div id="cardcont">
+				<div id="cardtitle">
+					<span id="cardyear">
+					</span>
+				</div>
+				<div class="cardcatdivider"></div>
+					<div id="bibdata">
+						<div id="cardauthordiv">
+							Author: 
+							<span id="cardauthorspan"></span>
+						</div>
+						<div id="carddatediv">
+							Date: 
+							<span id="carddatespan"></span>
+						</div>
+						<div id="cardtype">
+							Type: 
+							<span id="cardtypespan"></span>
+						</div>
+						<div id="cardpublisher">
+							Publisher: 
+							<span id="cardpublisherspan"></span>
+						</div>
+					</div>
+
+				<div class="cardcatdivider">
+					Abstract
+				</div>
+				<div id="cardabstract">
+				</div>
+				
+			</div>	
+			<div id="cardtopics">
+				</div>
+		</div>
+		
+				
+			
+	</div>
+	<div id="notice" style="display:none"">Press ENTER to return to browsing.</div>
+	<div id="bottomspacer"></div>
+
+
+</body>
+</html>
