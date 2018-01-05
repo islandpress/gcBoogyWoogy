@@ -1,5 +1,7 @@
 <?php
 
+require('../vendor/autoload.php');
+
 // search at varying degrees of strictness.
 // Because the API doesn't yet allow tag search,
 // all of these are keyword searches. The differences
