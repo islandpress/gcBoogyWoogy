@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF8">
-		<title>BoogyWoogy Browser</title>
+		<title>Mondrian Transit</title>
 		
 <link href="boogy.css" rel="stylesheet" type="text/css" media="all" />
 
@@ -31,13 +31,12 @@
 
 	<!-- title bar -->
 	<div id="pagetitlediv">
-		<span id="pagetitle">BoogyWoogy</span>
+	  <span id="pagetitle">Mondrian Transit</span>
 		
 		<!-- search box -->
-			<span id="searchdiv">&nbsp;&nbsp;
-			<textarea id="searchbox" placeholder="Enter search term"></textarea>
-			<input type="button" onclick="startSearch()" value="Search">
-		</span>
+		<span id="searchdiv">&nbsp;&nbsp;
+		  <textarea id="searchbox" placeholder="Enter search term"></textarea>
+		  <span id="searchbutton" class="off" onclick="startSearch()">Search</span>
 		<span id="instructionsbutton" class="off" onclick="toggleButtons('explanation')">Help</span>
 		
 	
@@ -62,7 +61,7 @@
 			BoogyWoogy is intended just as a demonstration of a little of the power of the Green Commons API, the server technology that's underneath BoogyWoogy's too-bright colors. You can find out more about that API <a href="#">here</a>. (And please note that this app was written by a non-developer. Just a hobbyist. Don't judge me! :) &nbsp;&nbsp;&nbsp;
 			<br><br>
 			<div class="explans">
-			BoogyWoogy is an Open Source project (as is gCommons).  It builds on an idea from Jeff Goldenson. The laughable source code is <a href="https://github.com/dweinberger/gcBoogyWoogy/">here</a>. If you hit bugs (you will) or have suggestions, send an email
+			BoogyWoogy is an Open Source project (as is the Green Commons).  It builds on an idea from Jeff Goldenson. The laughable source code is <a href="https://github.com/dweinberger/gcBoogyWoogy/">here</a>. If you hit bugs (you will) or have suggestions, send an email
 			to me at david@weinberger.org. Thanks! <br><br>-- David Weinberger<br>Sept. 2017
 			<span class= "instructionsbtn" onclick="toggleButtons('explanation')" style="text-decoration:underline;color:blue;">Hide</span>
 		</div>
@@ -85,8 +84,6 @@
 			</div>
 		 </div>
 	</div>
-	
-		<span id="pagesubtitle">&nbsp;&nbsp;<a href="http://www.greencommons.net" title="An amateur app built using GreenCommons.net"><img src="./images/gcbadge.png"></a></span>
 	
 </div>
 

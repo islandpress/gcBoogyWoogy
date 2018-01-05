@@ -11,7 +11,7 @@ WILDCARD: A keyword search on the first real word of the title.
 
 BoogyWoogy is intended just as a demonstration of a little of the power of the Green Commons API, the server technology that's underneath BoogyWoogy's too-bright colors. You can find out more about that API here here \[TK]. (And please note that this app was written by a hobbyist non-developer. Don't judge me! :)     
 
-BoogyWoogy is an Open Source project (as is gCommons). It builds on an idea from Jeff Goldenson. If you hit bugs (you will) or have suggestions, send an email to me at david@weinberger.org. Thanks! 
+BoogyWoogy is an Open Source project (as is the Green Commons). It builds on an idea from Jeff Goldenson. If you hit bugs (you will) or have suggestions, send an email to me at david@weinberger.org. Thanks! 
 
 -- David Weinberger
 Sept. 2017 
