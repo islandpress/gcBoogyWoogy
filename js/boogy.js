@@ -163,7 +163,7 @@ function init(){
 			$("#slidertext").css({"color":"#782C37","font-weight":"600"});
 		}
 		if (slideval >= 0.75){
-			$("#slidertext").html("NIC CAGE - WILDCARD! <img style='vertical-align:top' src='./images/niccage.png'>");
+			$("#slidertext").html("WILDCARD");
 			$("#slidertext").css({"color":"red","fontWeight":"800"});
 		}
 	});
@@ -347,7 +347,7 @@ function buildSearchTerm(booknumb,subjects,slidervalue){
 				break; 
 				
 			
-			case "NIC CAGE - WILDCARD! ":
+			case "WILDCARD":
 				// get first nonstopword from title
 				var title = gbookgrid[booknumb]["title"];
 				term = firstNonStopword(title);

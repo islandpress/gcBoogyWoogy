@@ -101,6 +101,7 @@
     top: 20%;
 }
 #searchbox{
+    line-height: 30px;
     width:200px;
     height: 30px;
     font-size: 14px;
